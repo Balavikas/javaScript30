@@ -13,20 +13,23 @@ If we don’t remove it, the element stays scaled and glowing forever.
 
 ✅ What JavaScript does:
 js
-Copy
-Edit
+
+```
 key.classList.add('playing');         // starts the transition
 ...
 key.addEventListener('transitionend', removeTransition);
+
+```
 Then:
 
 js
-Copy
-Edit
+
+```
 function removeTransition(e) {
   if (e.propertyName !== 'transform') return;
   this.classList.remove('playing');   // resets the element
 }
+```
 This removes the .playing class right after the transition ends, causing the element to return to its original state.
 
 🎬 What happens visually:
